@@ -8,15 +8,16 @@ public class GameManager : MonoBehaviour
 {
 
     public int cardPoints = 0;
+    public int cardsReady = 0;
     public Text cardPointsText;
     IDictionary<string, int> cardValues = new Dictionary<string, int>();
     public class Player
     {
         public string Name { get; set; }
-        public int GreenCard { get; set; }
-        public int BlueCard { get; set; }
-        public int PurpleCard { get; set; }
-        public Player(string name, int greenCard, int blueCard, int purpleCard)
+        public CardManager GreenCard { get; set; }
+        public CardManager BlueCard { get; set; }
+        public CardManager PurpleCard { get; set; }
+        public Player(string name, CardManager greenCard, CardManager blueCard, CardManager purpleCard)
         {
             Name = name;
             GreenCard = greenCard;
