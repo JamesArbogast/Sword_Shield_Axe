@@ -11,7 +11,7 @@ public class CardManager : MonoBehaviour
     public GameObject downArrow;
     public Text numberText;
     public int cardValue = 0;
-    public bool isReady = false;
+    public int isReady = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +25,12 @@ public class CardManager : MonoBehaviour
     {
         if(cardValue > 0)
         {
-            isReady = true;
+            isReady = 1;
+            
         }
         else
         {
-            isReady = false;
+            isReady = 0;
         }
         numberText.text = cardValue.ToString();
     }
@@ -46,8 +47,6 @@ public class CardManager : MonoBehaviour
         {
             gameManager.cardPoints = 0;
         }
-
-        isReady = true;
     }
     //attached to arrows on click event
     public void UpdateCardValueDown()
@@ -67,11 +66,7 @@ public class CardManager : MonoBehaviour
         {
             gameManager.cardPoints = 100;
         }
-
-        if(cardValue <= 0)
-        {
-            isReady = false;
-        }
     }
+
 
 }

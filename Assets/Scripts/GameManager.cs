@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+    public Player newPlayer;
+    public CardManager greenCard;
+    public CardManager blueCard;
+    public CardManager purpleCard;
     public int cardPoints = 0;
     public int cardsReady = 0;
     public Text cardPointsText;
@@ -39,6 +42,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        greenCard = GameObject.Find("GreenCardInnerBackground").GetComponent<CardManager>();
+        blueCard = GameObject.Find("BlueCardInnerBackground").GetComponent<CardManager>();
+        purpleCard = GameObject.Find("PurpleCardInnerBackground").GetComponent<CardManager>();
+        Debug.Log(greenCard.isReady);
         cardPoints = 100;
         //change this to intro once the intro is done
         gameState = GameState.PREP;
@@ -47,7 +54,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameState);
         switch (gameState)
         {
             
@@ -81,6 +87,8 @@ public class GameManager : MonoBehaviour
                 Console.WriteLine("Game state: END");
                 break;
         }
+
+        cardsReady = greenCard.isReady + blueCard.isReady + purpleCard.isReady;
             
     }
     

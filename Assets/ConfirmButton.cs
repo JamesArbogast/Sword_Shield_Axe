@@ -14,6 +14,7 @@ public class ConfirmButton : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        confirmButton.GetComponent<Button>().interactable = false;
     }
 
     // Update is called once per frame
